@@ -1,0 +1,14 @@
+        /*Element Selektor*/
+        div{
+            background-color: aqua;
+        }
+
+        /*id Selektor*/
+        #u{
+            font-size: 3rem;
+        }
+
+        /* Klasse Selector */
+        .text{
+            font-size: 2rem;
+        }
