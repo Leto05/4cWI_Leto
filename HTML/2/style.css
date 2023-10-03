@@ -1,0 +1,30 @@
+*{
+    box-sizing: border-box;
+}
+
+div{
+    border-style: solid;
+    height: 50px;
+}
+
+.div1{
+    background-color: yellow;
+    position: fixed;
+    width: 100vw;
+    height: 40;
+}
+
+.div2{
+    background-color: purple;
+    position: relative;
+    top: 100px;
+    left: 5px;
+}
+.div3{
+    background-color: gray;
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+    width: 100px;
+    padding: 20px;
+}
