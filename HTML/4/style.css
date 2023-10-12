@@ -1,0 +1,20 @@
+.box{
+    background-color: green;
+    padding: 5px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 100px auto 100px 200px;
+    grid-auto-rows: minmax(200px, auto);
+    column-gap: 2px;
+    row-gap: 2px;
+}
+
+.item6{
+    grid-column-start:span 2 ;
+}
+
+.item2{
+    grid-row-start:span 2 ;
+}
