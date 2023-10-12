@@ -24,6 +24,7 @@
 }
 
 #container_2{
+    position: relative;
     margin: 20px;
     background-color: aquamarine;
     width: 400px;
@@ -31,20 +32,24 @@
 }
 
 #Box_2{
-    background-color: green;
-    margin: 20px;
+    position: relative;
+    top: 20px;
+    left: 20px;
 }
 
 li{
     position: relative;
-    left: 20px;
-    top: 40px;
 }
 ul{
-    background-color: blueviolet;
+    position: relative;
+    left: 20px;
+    top: 40px;
 }
 #Box_4{
     width: 100px;
     height: 100px;
     background-color: brown;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
 }
