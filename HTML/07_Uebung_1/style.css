@@ -14,8 +14,33 @@
 
 .smallContainer1{
     background-color: aqua;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 50%;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    column-gap: 2px;
+    row-gap: 2px;
+    grid-auto-rows: minmax(200px, 200px);
+
 }
 
 .smallContainer2{
     background-color: yellow;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    left: 50%;
+    display: grid;
+    grid-template-columns: 270px 270px;
+    column-gap: 2px;
+    row-gap: 2px;
+    grid-auto-rows: minmax(270px, 270px);
+}
+.Element{
+    background-color: green;
+    margin: 20px;
 }
