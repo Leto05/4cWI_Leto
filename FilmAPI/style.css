@@ -1,11 +1,19 @@
-#header{
-    background-color: rgb(0, 0, 0);
-    position: fixed;
-    width: 100vw;
-    height: 100px;
+* {
+    font-family: 'Inter', sans-serif;
 }
-*{
-    font-family: Arial, Helvetica, sans-serif;
-    color: white;
-    background-color: rgb(52, 52, 52);
+
+#autocomplete {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
+
+#autocomplete::-webkit-scrollbar {
+    display: none;
+}
+
+input:focus {
+    outline: none;
+}
+
