@@ -1,6 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
+import AboutContainer from './components/movieComponents/aboutContainer';
+import IndexContainer from './components/movieComponents/indexContainer';
+import MovieContainer from './components/movieComponents/movieContainer';
 import PeopleContainer from './components/peopleContainer';
+
 //jsx Sprache
 import {
   createBrowserRouter,
@@ -9,12 +12,29 @@ import {
 
 const router = createBrowserRouter([
   {
+    path: "/movie",
+    element: <div><MovieContainer/></div>,
+  },
+  {
+    path: "/about",
+    element: <div><AboutContainer/></div>,
+  },
+  {
+    path: "/index",
+    element: 
+    <div><IndexContainer/></div>,
+  },
+  {
     path: "/People",
-    element: <div><PeopleContainer/></div>
+    element: <div><PeopleContainer/></div>,
   },
   {
     path: "/",
     element: <div>Hello</div>,
+  },
+  {
+    path: "/test",
+    element: <div>Test</div>,
   },
 ]);
 
