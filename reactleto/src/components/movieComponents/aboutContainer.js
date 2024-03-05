@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function aboutContainer() {
+export default function AboutContainer() {
   return (
     <html lang="en">
       <head>
@@ -16,12 +16,12 @@ export default function aboutContainer() {
       <body className="bg-[#585858] relative flex flex-col items-center overflow-x-hidden">
         <div className="relative w-[100vw] h-[15vh] bg-black flex items-center" id="header">
           <div id="img" className="mr-[100px]">
-            <a href="index.html">
+            <a href="index">
               <img src="logo.png" alt="LETOFILMS ETS. 2005" srcset="" width="380px" className="m-1 max-h-[15vh] min-ml-[40px]" />
             </a>
           </div>
-          <a href="index.html" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">home</a>
-          <a href="about.html" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">about</a>
+          <a href="index" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">home</a>
+          <a href="about" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">about</a>
         </div>
         <div id="main" className="min-h-[85vh] h-full w-[100vw] md:w-[90vw] bg-[#252525] flex flex-col items-center justify-center md:items-start relative pl-7 pr-7 text-white text-bold">
           Hallo, ich bin Leto. Dies ist eine Filmseite designed mit FIGMA und erstellt mit HTML, CSS und JS. Props gehen raus an Daniel, der gefühlt bei der ganzen Seite mitgeholfen hat :D

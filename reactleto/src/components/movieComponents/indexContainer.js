@@ -1,6 +1,85 @@
-import React from 'react'
+import React, { useEffect } from 'react';
 
-export default function indexContainer() {
+export default function IndexContainer() {
+  useEffect(() => {
+    function getMovieList() {
+      let output = "";
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Yjg4NGQwYmYxODQ0ZjU0MzMwNjliMjFmOGM3ZDA2ZCIsInN1YiI6IjY1Njk3ZmYyZDA0ZDFhMDBhZWYxOWJkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dt9BmASH2ZpKLQcDbTzL9NtcdLesieS0ONmNZm3eZT0'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/trending/movie/day?language=en-US', options)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response);
+          response.results.forEach(element => {
+            output += '<a href="movie.html?film=' + element.id + '" id="" class="w-[75vw] md:w-[280px] h-[40vh] md:h-[38vh] min-h-[400px] bg-[#3B3B3B] flex flex-col items-center justify-evenly mt-5 md:m-5">'
+            output += '<img src="https://image.tmdb.org/t/p/w500' + element.poster_path + '" alt="" class="w-[50vw] md:w-[10vw] max-w-[170px]">'
+            output += '<div class="text-[20px] m-2">'
+            output += element.original_title
+            output += '</div>'
+            output += '</a>'
+          });
+          document.getElementById("list").innerHTML = output;
+        })
+        .catch(err => console.error(err));
+    }
+
+    function searchMovie(name) {
+      let output = "";
+      const options = {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Yjg4NGQwYmYxODQ0ZjU0MzMwNjliMjFmOGM3ZDA2ZCIsInN1YiI6IjY1Njk3ZmYyZDA0ZDFhMDBhZWYxOWJkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dt9BmASH2ZpKLQcDbTzL9NtcdLesieS0ONmNZm3eZT0'
+        }
+      };
+      
+      fetch('https://api.themoviedb.org/3/search/movie?query=' + name, options)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response);
+          if (response.results.length === 0) {
+            alert("No title found :(");
+          } else {
+            response.results.forEach(element => {
+              output += '<a href="movie.html?film=' + element.id + '" id="" class="w-[75vw] md:w-[280px] h-[40vh] md:h-[38vh] bg-[#3B3B3B] flex flex-col items-center justify-evenly mt-5 md:m-5">'
+              output += '<img src="https://image.tmdb.org/t/p/w500' + element.poster_path + '" alt="" class="w-[190px]">'
+              output += '<div class="text-[20px]">'
+              output += element.original_title
+              output += '</div>'
+              output += '</a>'
+            });
+            document.getElementById("list").innerHTML = output;
+          }
+        })
+        .catch(err => console.error(err));
+    }
+    
+    const searchButton = document.getElementById("search-button");
+    const searchInput = document.getElementById("search-input");
+    
+    if (searchButton && searchInput) {
+      searchButton.addEventListener("click", () => {
+        const ctx = searchInput.value;
+        searchMovie(ctx);
+      });
+
+      searchInput.addEventListener("keypress", (e) => {
+        if (e.key === 'Enter') {
+          const ctx = searchInput.value;
+          searchMovie(ctx);
+        }
+      });
+    }
+
+    getMovieList();
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -13,21 +92,20 @@ export default function indexContainer() {
           rel="stylesheet"
         />
         <script src="https://cdn.tailwindcss.com"></script>
-        <script src="index.js" defer></script>
         <link rel="stylesheet" href="style.css" />
         <title>LETOFILMS ETS. 2005</title>
       </head>
       <body className="bg-[#585858] relative flex flex-col items-center overflow-x-hidden">
         <div className="relative w-[100vw] h-[15vh] bg-black flex items-center" id="header">
           <div id="img" className="mr-[100px]">
-            <a href="index.html">
-              <img src="LogoHD.png" alt="LETOFILMS ETS. 2005" srcset="" width="380px" className="m-1 max-h-[15vh] min-ml-[40px]" />
+            <a href="index">
+              <img src="LogoHD.png" alt="LETOFILMS ETS. 2005" srcSet="" width="380px" className="m-1 max-h-[15vh] min-ml-[40px]" />
             </a>
           </div>
-          <a href="index.html" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">
+          <a href="index" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">
             home
           </a>
-          <a href="about.html" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">
+          <a href="about" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">
             about
           </a>
         </div>
@@ -37,7 +115,7 @@ export default function indexContainer() {
               <input type="text" className="w-[100%] h-[100%] rounded-[10px] bg-transparent text-[30px]" placeholder="Title" id="search-input" />
             </div>
             <div className="text-white h-[5vh] min-h-[40px]">
-              <button type="button" className="bg-[#3B3B3B] w-[20vw] md:w-[10vw] h-[100%] ml-[50px] rounded-[10px]">
+              <button type="button" id="search-button" className="bg-[#3B3B3B] w-[20vw] md:w-[10vw] h-[100%] ml-[50px] rounded-[10px]">
                 Search
               </button>
             </div>
@@ -50,5 +128,5 @@ export default function indexContainer() {
         </div>
       </body>
     </html>
-  )
+  );
 }
