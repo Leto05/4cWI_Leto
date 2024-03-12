@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import LogoImage from './LogoImage';
 
 export default function IndexContainer() {
   useEffect(() => {
@@ -8,7 +9,7 @@ export default function IndexContainer() {
         method: 'GET',
         headers: {
           accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0Yjg4NGQwYmYxODQ0ZjU0MzMwNjliMjFmOGM3ZDA2ZCIsInN1YiI6IjY1Njk3ZmYyZDA0ZDFhMDBhZWYxOWJkNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.dt9BmASH2ZpKLQcDbTzL9NtcdLesieS0ONmNZm3eZT0'
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZGViYjIwMWI0MmY0MzQyOTZlMTE2MGI0NTE5NmQ5MCIsInN1YiI6IjY1NzFiNWI1OTBmY2EzMDE0ZTcxYzhmMSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Rfy7I1u0ZOdhjqqIYnhjjh4oMbGu4mta05VPJNTpaaY'
         }
       };
       
@@ -17,7 +18,7 @@ export default function IndexContainer() {
         .then(response => {
           console.log(response);
           response.results.forEach(element => {
-            output += '<a href="movie.html?film=' + element.id + '" id="" class="w-[75vw] md:w-[280px] h-[40vh] md:h-[38vh] min-h-[400px] bg-[#3B3B3B] flex flex-col items-center justify-evenly mt-5 md:m-5">'
+            output += '<a href="movie' + '" id="" class="w-[75vw] md:w-[280px] h-[40vh] md:h-[38vh] min-h-[400px] bg-[#3B3B3B] flex flex-col items-center justify-evenly mt-5 md:m-5">'
             output += '<img src="https://image.tmdb.org/t/p/w500' + element.poster_path + '" alt="" class="w-[50vw] md:w-[10vw] max-w-[170px]">'
             output += '<div class="text-[20px] m-2">'
             output += element.original_title
@@ -99,7 +100,7 @@ export default function IndexContainer() {
         <div className="relative w-[100vw] h-[15vh] bg-black flex items-center" id="header">
           <div id="img" className="mr-[100px]">
             <a href="index">
-              <img src="LogoHD.png" alt="LETOFILMS ETS. 2005" srcSet="" width="380px" className="m-1 max-h-[15vh] min-ml-[40px]" />
+              <LogoImage></LogoImage>
             </a>
           </div>
           <a href="index" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">
@@ -120,7 +121,7 @@ export default function IndexContainer() {
               </button>
             </div>
           </div>
-
+          <div id="list" className="flex flex-col md:flex-row items-center md:justify-center md:flex-wrap text-white w-[100%]"></div>
           <div id="Title" className="mt-[30px] ml-[50px]">
             <div className="text-white text-[40px] font-bold">Top Movies</div>
           </div>
