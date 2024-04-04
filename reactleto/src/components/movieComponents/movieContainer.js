@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import LogoImage from './LogoImage';
+import Header from './Header';
 
-export default function MovieContainer() {  
+export default function MovieContainer() {
 
   useEffect(() => {
 
@@ -50,31 +51,12 @@ export default function MovieContainer() {
   }, []);
 
   return (
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-        <link rel="stylesheet" href="style.css" />
-        <title>LETOFILMS ETS. 2005</title>
-      </head>
-      <body className="bg-[#585858] relative flex flex-col items-center overflow-x-hidden">
-        <div className="relative w-[100vw] h-[15vh] bg-black flex items-center" id="header">
-          <div id="img" className="mr-[100px]">
-            <a href="index">
-              <LogoImage/>
-            </a>
-          </div>
-          <a href="index" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">home</a>
-          <a href="about" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">about</a>
-        </div>
-        <div id="main" className="min-h-[85vh] h-full w-[100vw] md:w-[90vw] bg-[#252525] flex flex-col items-center justify-center md:flex-row md:items-center relative pl-7 pr-7 text-white text-bold">
-        </div>
-      </body>
-    </html>
+
+    <div>
+      <Header></Header>
+      <div id="main" className="min-h-[85vh] h-full w-[100vw] md:w-[100vw] bg-[#252525] flex flex-col items-center justify-center md:flex-row md:items-center relative pl-7 pr-7 text-white text-bold">
+      </div>
+    </div>
   )
 }
 //A

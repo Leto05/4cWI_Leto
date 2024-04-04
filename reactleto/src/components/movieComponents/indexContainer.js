@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react';
 import LogoImage from './LogoImage';
 import Button from './Button';
 import Movie from './Movie';
+import Header from './Header';
 
 export default function IndexContainer() {
   const [searchValue, setSearchValue] = useState("")
   const [movies, setMovies] = useState([])
+  const Images = 'https://image.tmdb.org/t/p/w500';
 
   useEffect(() => {
     function getMovieList() {
@@ -27,8 +29,9 @@ export default function IndexContainer() {
 
     }
 
-
+    const apiData = getMovieList();
     getMovieList();
+    console.log(apiData)
   }, []);
 
   function searchMovie() {
@@ -53,42 +56,34 @@ export default function IndexContainer() {
       });
   }
 
-
-
   return (
     <div>
-      <div className="relative w-[100vw] h-[15vh] bg-black flex items-center" id="header">
-        <div id="img" className="mr-[100px]">
-          <a href="index">
-            <LogoImage></LogoImage>
-          </a>
-        </div>
-        <a href="index" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[60%] md:top-[35%] flex items-center justify-center text-white">
-          home
-        </a>
-        <a href="about" className="absolute bg-[#252525] w-[10%] h-[30%] right-[10%] top-[10%] md:top-[35%] md:right-[30%] flex items-center justify-center text-white">
-          about
-        </a>
-      </div>
-      <div id="main" className="min-h-[85vh] h-full w-[100vw] md:w-[90vw] bg-[#252525] flex flex-col items-center md:items-start relative pl-7 pr-7">
-        <div id="search" className="flex items-center justify-center md:justify-start mt-5 w-[100%]">
-          <div className="bg-[#D9D9D9] h-[5vh] min-h-[40px] w-[50vw] md:w-[30vw] rounded-[10px] relative left-5">
-            <input type="text" value={searchValue} onChange={(el) => setSearchValue(el.target.value)} className="w-[100%] h-[100%] rounded-[10px] bg-transparent text-[30px]" placeholder="Title" id="search-input" />
-          </div>
-          <div className="text-white h-[5vh] min-h-[40px]">
-
-            <Button search={"test"} onClick={() => { searchMovie() }} />
+      <Header></Header>
+      <div id="main" className="bg-[#252525]">
+        <div id="search" className="">
+          <div className="flex flex-wrap">
+            <div>
+              <input type="text" value={searchValue} onChange={(el) => setSearchValue(el.target.value)} className="m-4 p-5 " placeholder="Title" id="search-input" />
+            </div>
+            <div className="text-white h-[5vh] min-h-[40px]">
+              <Button search={"search"} onClick={() => { searchMovie() }} />
+            </div>
           </div>
         </div>
-        <div id="list" className="flex flex-col md:flex-row items-center md:justify-center md:flex-wrap text-white w-[100%]"></div>
-        <div id="Title" className="mt-[30px] ml-[50px]">
-          <div className="text-white text-[40px] font-bold">Top Movies</div>
+        <div id="list" className=""></div>
+        <div id="Title" className="">
+          <div className="pt-4 text-white ml-5 text-bold">Top Movies</div>
         </div>
-        <div id="list" className="grid grid-cols-4  gap-4 w-full" >
-          {movies.map(movie => <Movie movie={movie} />)}
+        <div id="list" className="grid grid-cols-4  gap-4 w-full p-10" >
+          {movies.map(movie => {
+            console.log(movie);
+            return (
+              <Movie movie={movie} imageUri={Images + movie.poster_path} />)
+          })}
         </div>
       </div>
     </div>
   );
 }
-//A
+//
+//A 
