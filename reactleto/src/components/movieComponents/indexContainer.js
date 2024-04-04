@@ -78,7 +78,7 @@ export default function IndexContainer() {
           {movies.map(movie => {
             console.log(movie);
             return (
-              <Movie movie={movie} imageUri={Images + movie.poster_path} />)
+              <Movie movie={movie} imageUri={Images + movie.poster_path} overview={movie.summary} />)
           })}
         </div>
       </div>
